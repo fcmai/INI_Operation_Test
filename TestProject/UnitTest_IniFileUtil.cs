@@ -122,20 +122,39 @@ namespace TestProject
             Byte[] bty2 = ini.IniReadValueByte("Byte", "A2");
             Debug.WriteLine("Byte " + System.Text.Encoding.Default.GetString(bty2));
 */
-            //读写Hex
+            //读写Hex//
             Debug.WriteLine("");
             byte[] valsHex = { 0x31, 0x33, 0x30, 0x31, 68 };
-            byte[] readvals = new byte[sizeof(valsHex)];
-            ini.IniWriteValueHex("Hex", "A-hex", vals);
-            vals.Initialize();
+            byte[] readvals = new byte[5];
+            ini.IniWriteValueHex("Hex", "A-hex", valsHex);
             readvals = ini.IniReadHex("Hex", "A-hex");
-            Debug.WriteLine("Hex" + ini.IniReadValue("Hex", "A-hex"));
-            Debug.WriteLine("Hex" + System.Text.Encoding.Default.GetString(readvals) + "\r\n");
-            vals[1] = 97;
-            ini.IniWriteValueHex("Hex", "A-hex2", vals, 4);
-            readvals = ini.IniReadHex("Hex", "A-hex2", 4);
-            Debug.WriteLine("Hex" + ini.IniReadValue("Hex", "A-hex2"));
-            Debug.WriteLine("Hex" + System.Text.Encoding.Default.GetString(readvals) + "\r\n");
+           // Assert.AreEqual(readvals, valsHex);
+            for (int k = 0; k < valsHex.Length; k++)
+            {
+                Assert.AreEqual(valsHex[k], readvals[k]);
+            }
+
+            int numtoRead = 4;
+            valsHex[0] = 96; valsHex[1] = 97; valsHex[2] = 98; valsHex[1] = 99;
+            ini.IniWriteValueHex("Hex", "A-hex2", valsHex, numtoRead);
+            readvals = ini.IniReadHex("Hex", "A-hex2", numtoRead);
+            if (numtoRead<=valsHex.Length)
+            {
+                for (int j = 0; j < numtoRead; j++)
+                {
+                    Assert.AreEqual(valsHex[j], readvals[j]);
+                
+                 }
+            }
+            else
+            {
+                for (int k = 0; k < readvals.Length; k++)
+                {
+                    Assert.AreEqual(valsHex[k], readvals[k]);
+                }
+                 
+            }
+            
 
         }
     }
