@@ -202,7 +202,28 @@ namespace Commons
 		{
 			byte[] temp = new byte[255];
 			int i = GetPrivateProfileString(section, key, "", temp, 255, this.path);
-			return temp;
+		    int numToRead = 0;
+		    for (int j = 0; j < 255; j++)
+		    {
+		        if (temp[j] != 0)
+		        {
+		            numToRead++;
+		        }
+		        else
+		        {
+		            break;
+		        }
+
+		    }
+            byte[] tempRead = new byte[numToRead];
+            for (int j = 0; j < numToRead; j++)
+            {
+                tempRead[j] = temp[j];
+
+            }
+
+
+			return tempRead;
 		}
         //bool
         public bool IniReadValuesBool(string section, string key)
@@ -239,7 +260,7 @@ namespace Commons
                 Trace.WriteLine("Boolean.TryParse failure " + System.Text.Encoding.Default.GetString(temp));
                 throw (new Exception("ToDouble failure " + System.Text.Encoding.Default.GetString(temp)));
                 //return 0;
-                
+             
             }
             finally
             {

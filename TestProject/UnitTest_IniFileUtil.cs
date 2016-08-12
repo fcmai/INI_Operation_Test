@@ -13,7 +13,7 @@ namespace TestProject
     [TestClass]
     public class UnitTest_IniFileUtil
     {
-        public UnitTest_IniFileUtil()
+        public UnitTest_IniFileUtil() 
         {
             //
             //TODO: 在此处添加构造函数逻辑
@@ -65,7 +65,7 @@ namespace TestProject
         #endregion
 
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethod_iniDataWriteandRead()
         {
             //
             // TODO: 在此处添加测试逻辑
@@ -108,20 +108,31 @@ namespace TestProject
             Assert.AreEqual(b, ini.IniReadValuesBool("bool", "A1"));
 
             //读写Byte【】
-            /*
-            byte [] bty= {0x30,0x31, 0x32,0x33,0x44,0x45};
-            ini.IniWriteValueByte("Byte", "A1", bty);
-            Debug.WriteLine("Byte " + ini.IniReadValue("Byte", "A1"));
+         
+            byte [] btyW= {0x30,0x31, 0x32,0x33,0x44,0x45};
+            ini.IniWriteValueByte("Byte", "A1", btyW);          ;
             Byte[] btyR = ini.IniReadValueByte("Byte", "A1");
-            Debug.WriteLine("Byte " + System.Text.Encoding.Default.GetString(bty));
+            Assert.AreEqual(btyW.Length,btyR.Length);
+            for (int k = 0; k < btyR.Length; k++)
+            {
+                Assert.AreEqual(btyR[k], btyW[k]);
+            }
+            for (int k = 0; k < btyW.Length; k++)
+            {
+                Assert.AreEqual(btyR[k], btyW[k]);
+            }
 
-            Debug.WriteLine("");
-            ini.IniWriteValueByte("Byte", "A2", vals, 3);
-            Debug.WriteLine("Byte " + ini.IniReadValue("Byte", "A2"));
-            Debug.WriteLine("");
+            btyW[0] = 0x30; btyW[1] = 0x31; btyW[2] = 0x32; btyW[3] = 0x33;
+            ini.IniWriteValueByte("Byte", "A2", btyW, 3);
+            Assert.AreEqual("012", ini.IniReadValue("Byte", "A2"));
+            ini.IniWriteValueByte("Byte", "A2", btyW, 3);
+            Assert.AreNotEqual("013", ini.IniReadValue("Byte", "A2"));
+
+            btyW[0] = 0x30; btyW[1] = 0x31; btyW[2] = 0x32; btyW[3] = 0x33;
+            ini.IniWriteValueByte("Byte", "A2", btyW, 4);
             Byte[] bty2 = ini.IniReadValueByte("Byte", "A2");
-            Debug.WriteLine("Byte " + System.Text.Encoding.Default.GetString(bty2));
-*/
+            Assert.AreEqual("0123", System.Text.Encoding.Default.GetString(bty2));
+
             //读写Hex//
             Debug.WriteLine("");
             byte[] valsHex = { 0x31, 0x33, 0x30, 0x31, 68 };
