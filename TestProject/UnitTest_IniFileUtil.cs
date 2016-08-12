@@ -13,7 +13,7 @@ namespace TestProject
     [TestClass]
     public class UnitTest_IniFileUtil
     {
-        public UnitTest_IniFileUtil(  ) 
+        public UnitTest_IniFileUtil(/*   */  ) 
         {
             //
             //TODO: 在此处添加构造函数逻辑
