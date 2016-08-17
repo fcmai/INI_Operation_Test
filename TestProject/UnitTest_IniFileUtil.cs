@@ -102,7 +102,7 @@ namespace TestProject
             //读写bool
             bool b = false;
             ini.IniWriteValue("bool", "A1", b);
-            Assert.AreEqual(b,ini.IniReadValuesBool("bool", "A1"));
+            Assert.AreEqual(b,ini.IniReadValuesBool("bool", "A1"))   ;
             b = true;
             ini.IniWriteValue("bool", "A1", true);
             Assert.AreEqual(b, ini.IniReadValuesBool("bool", "A1"));
