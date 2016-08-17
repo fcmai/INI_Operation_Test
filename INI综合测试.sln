@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INI_INIFileUtil.cs综合测试", "Del\INI_INIFileUtil.cs综合测试.csproj", "{AAF8B935-9B4F-4DD3-89E5-6B29F7DF9956}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INI_INIFileUtil.cs", "Del\INI_INIFileUtil.cs.csproj", "{AAF8B935-9B4F-4DD3-89E5-6B29F7DF9956}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{2A0B82EF-E272-4491-A854-FD5743C95A4E}"
 EndProject

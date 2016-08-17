@@ -99,6 +99,19 @@ namespace TestProject
             ini.IniWriteValue("Int", "A1", i);
             Assert.AreEqual(i, ini.IniReadInt("Int", "A1", i +1));
 
+            //读写double
+            double ii = 100.001;
+            ini.IniWriteValue("Int", "A1", ii);
+            Assert.AreEqual(ii, ini.IniReadValuesDouble("Int", "A1"));
+            ini.IniWriteValue("Int", "A1", ii+1234);
+            Assert.AreEqual(ii+1234, ini.IniReadValuesDouble("Int", "A1"));
+            ini.IniWriteValue("Int", "A1", ii-124);
+            Assert.IsTrue(Math.Abs(ii-124-ini.IniReadValuesDouble("Int", "A1"))<0.001);
+          
+
+            ini.IniWriteValue("Int", "A1", ii + 1);
+
+            ini.IniWriteValue("Int", "A1", ii + 1);
             //读写bool
             bool b = false;
             ini.IniWriteValue("bool", "A1", b);

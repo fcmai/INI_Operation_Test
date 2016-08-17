@@ -59,9 +59,9 @@
     <Compile Include="UnitTest_IniFileUtil.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Del\INI_INIFileUtil.cs综合测试.csproj">
+    <ProjectReference Include="..\Del\INI_INIFileUtil.cs.csproj">
       <Project>{AAF8B935-9B4F-4DD3-89E5-6B29F7DF9956}</Project>
-      <Name>INI_INIFileUtil.cs综合测试</Name>
+      <Name>INI_INIFileUtil.cs</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
