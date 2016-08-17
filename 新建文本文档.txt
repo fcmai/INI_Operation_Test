@@ -1,1 +1,6 @@
-dsdsadsdsdaf 
+Git TortoiseGit 测试项目
+
+写入字符串、整型、bool、byte[]\hex
+删除字段、section、ini全部
+清空
+
